@@ -38,6 +38,25 @@ class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER COST<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void total_cost_of_order_after_selecting_food(){
+        add_restaurant();
+        selectedItem = restaurant.getMenu();
+        assertEquals(500,restaurant.total_order_cost(selectedItem));
+    }
+
+    @Test
+    public void total_cost_of_order_after_deSelecting_food(){
+        add_restaurant();
+        selectedItem = restaurant.getMenu();
+        int totalCost = restaurant.total_order_cost(selectedItem);
+        int totalAfterUpdate = selectedItem.get(1).getPrice();
+        selectedItem.remove(1);
+        assertEquals(totalCost-totalAfterUpdate,restaurant.total_order_cost(selectedItem));
+    }
+//<<<<<<<<<<<<<<<<<<<<<<<<<ORDER COST>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void adding_item_to_menu_should_increase_menu_size_by_1(){

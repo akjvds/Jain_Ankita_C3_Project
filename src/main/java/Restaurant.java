@@ -75,4 +75,12 @@ public class Restaurant {
         return name;
     }
 
+    public int total_order_cost(List<Item> selectedItem) {
+        int totalCost = 0;
+        for(Item s:selectedItem){
+            totalCost= totalCost+s.getPrice();
+        }
+        return totalCost;
+    }
+
 }
