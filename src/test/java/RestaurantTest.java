@@ -43,7 +43,7 @@ class RestaurantTest {
     public void total_cost_of_order_after_selecting_food(){
         add_restaurant();
         selectedItem = restaurant.getMenu();
-        assertEquals(500,restaurant.total_order_cost(selectedItem));
+        assertEquals(388,restaurant.total_order_cost(selectedItem));
     }
 
     @Test
